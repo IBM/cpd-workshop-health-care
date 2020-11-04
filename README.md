@@ -1,2 +1,2 @@
 # cpd-workshop-health-care
-Health Care workshop on Cloud Pak for Data
+Cloud Pak for Data on-prem workshop with health care use case
