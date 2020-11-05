@@ -6,6 +6,8 @@
 
 ### Health Care Workshop
 
+* [Data Connetion and Virtualization](data-connection-and-virtualization/README.md)
+* [Watson Knowledge Catalog for Admins](watson-knowledge-catalog-admin/README.md)
 
 ### Workshop Resources
 
