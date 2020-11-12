@@ -14,6 +14,41 @@ from pyspark.sql.functions import col
 BASE_DIR = "/Users/jrtorres/Documents/JRTDocs/Development/General_Projects/cpd-workshop-health-care/data/"
 OUTPUT_DIR = "/Users/jrtorres/tmp/"
 
+LOINC_CODES_NAMES = { 
+    "8302-2": "Height", 
+    "29463-7": "Weight", 
+    "6690-2": "Leukocytes", 
+    "789-8": "Erythrocytes",
+    "718-7": "Hemoglobin", 
+    "4544-3": "Hematocrit", 
+    "787-2": "MCV", 
+    "785-6": "MCH", 
+    "786-4": "MCHC", 
+    "777-3": "Platelets", 
+    "8462-4": "Diastolic Blood Pressure", 
+    "8480-6": "Systolic Blood Pressure", 
+    "39156-5": "Body Mass Index", 
+    "2093-3": "Total Cholesterol", 
+    "2571-8": "Triglycerides", 
+    "18262-6": "LDL Cholesterol", 
+    "2085-9": "HDL Cholesterol", 
+    "4548-4": "A1c Hemoglobin Total", 
+    "2339-0": "Glucose", 
+    "6299-2": "Urea Nitrogen", 
+    "38483-4": "Creatinine", 
+    "49765-1": "Calcium", 
+    "2947-0": "Sodium", 
+    "6298-4": "Potassium", 
+    "2069-3": "Chloride", 
+    "20565-8": "Carbon Dioxide", 
+    "14959-1": "Microalbumin Creatinine Ratio", 
+    "38265-5": "DXA Bone density", 
+    "26464-8": "White Blood Cell", 
+    "26453-1": "Red Blood Cell", 
+    "30385-9": "RBC Distribution Width", 
+    "26515-7": "Platelet Count"
+}
+
 def subset_files_by_patient(num_patients, base_directory=BASE_DIR, output_directory=OUTPUT_DIR):
     patients_df = pd.read_csv(base_directory + "/patients.csv") 
     allergies_df = pd.read_csv(base_directory + "/allergies.csv") 
@@ -61,27 +96,13 @@ def print_unique_observation_codedescriptions(observation_fname):
         t_df = observations_df[observations_df.CODE == c].iloc[0]
         print('{:15s} {}'.format(c, t_df.loc['DESCRIPTION']))
 
-def transpose_observations(observation_fname):
+def transpose_observations(observation_fname, output_fname):
     observations_df = pd.read_csv(observation_fname)
-    loinc_observations = { 
-        "8302-2": "Height", "29463-7": "Weight", "6690-2": "Leukocytes", "789-8": "Erythrocytes",
-        "718-7": "Hemoglobin", "4544-3": "Hematocrit", "787-2": "MCV", "785-6": "MCH", "786-4": "MCHC", 
-        "777-3": "Platelets", "8462-4": "Diastolic Blood Pressure", "8480-6": "Systolic Blood Pressure", 
-        "39156-5": "Body Mass Index", "2093-3": "Total Cholesterol", "2571-8": "Triglycerides", 
-        "18262-6": "LDL Cholesterol", "2085-9": "HDL Cholesterol", "4548-4": "A1c Hemoglobin Total", 
-        "2339-0": "Glucose", "6299-2": "Urea Nitrogen", "38483-4": "Creatinine", "49765-1": "Calcium", 
-        "2947-0": "Sodium", "6298-4": "Potassium", "2069-3": "Chloride", "20565-8": "Carbon Dioxide", 
-        "14959-1": "Microalbumin Creatinine Ratio", "38265-5": "DXA Bone density", 
-        "26464-8": "White Blood Cell", "26453-1": "Red Blood Cell", "30385-9": "RBC Distribution Width", 
-        "26515-7": "Platelet Count"
-    }
-
     #cur_obs_df = observations_df[observations_df["CODE"].isin(list(loinc_observations.keys()))].filter(items=["DATE", "PATIENT", "ENCOUNTER", "VALUE", "CODE"])
-    #cur_obs_df.info()
     #cur_obs_df.to_csv("/Users/jrtorres/tmp/test_process_obs.csv", index=False)
 
     final_observations_df = pd.DataFrame() #None
-    for loinc_code, obs_name in loinc_observations.items():
+    for loinc_code, obs_name in LOINC_CODES_NAMES.items():
         print("========================================================")
         print("Starting columns: ", list(final_observations_df))
         col_name = obs_name + " [" + loinc_code + "]"
@@ -102,7 +123,7 @@ def transpose_observations(observation_fname):
 
     print("Final Schema: ") 
     final_observations_df.info()
-    final_observations_df.to_csv("/Users/jrtorres/tmp/test_process_obs2.csv", index=False)
+    final_observations_df.to_csv(output_fname, index=False)
 
 if __name__ == "__main__":
     if sys.version_info[0] < 3:
@@ -122,7 +143,8 @@ if __name__ == "__main__":
 
     #print_unique_observation_codedescriptions("/Users/jrtorres/tmp/observations_small.csv")
 
-    transpose_observations("/Users/jrtorres/tmp/observations_small_test.csv")
+    #transpose_observations("/Users/jrtorres/tmp/observations_small_test.csv", "/Users/jrtorres/tmp/test_process_obs2.csv")
+    transpose_observations(BASE_DIR+"observations.csv", OUTPUT_DIR+"observations_processed.csv")
 
     elapsed = time.time() - started_time
     print("\nFinished script. Elapsed time: %f" % elapsed)
