@@ -25,7 +25,7 @@ In this section, we will gather data from several tables across data sources. We
 
 * Several tables names will be displayed across any of the data sources that are included in the data virtualization server. You will notice that on the right panel, we can filter the tables being displayed by selecting the datasource.
 
-* To simplify the search for tables you will use, click on the `Schemas` column header to sort the tables by Schema. Then find the tables we will be using for this workshop: `MEDICATIONS`, `PATIENTS` and `IMMUNIZATIONS`, which are under the `CP4DHEALTH` schema. Select the checkboxes next to these three tables, and then click on *`Add to cart`* followed by the *`View Cart`* button.
+* To simplify the search for tables you will use, click on the `Schemas` column header to sort the tables by Schema. Then find the tables we will be using for this workshop: `MEDICATIONS`, `PATIENTS` and `CONDITIONS`, which are under the `CP4DHEALTH` schema. Select the checkboxes next to these three tables, and then click on *`Add to cart`* followed by the *`View Cart`* button.
 
 > *Note: You may need to page through the available tables by clicking on the right arrow at the bottom of the tables view.*
 
@@ -35,7 +35,7 @@ In this section, we will gather data from several tables across data sources. We
 
 ![Add virtualized data to your project](../.gitbook/assets/images/dv/dv-virtualize-assign.png)
 
-dv-virtualize-complete.png* You'll be notified that the virtual tables have been created. Let's see the new virtualized tables from the Data Virtualization tool by clicking *`View my virtualized data`* button.
+* You'll be notified that the virtual tables have been created. Let's see the new virtualized tables from the Data Virtualization tool by clicking *`View my virtualized data`* button.
 
 ![We've got virtualized data](../.gitbook/assets/images/dv/dv-virtualize-complete.png)
 
@@ -63,17 +63,19 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 ![The data join succeeded!](../.gitbook/assets/images/dv/dv-join-created-1.png)
 
-* Repeat the same steps as above, but this time choose to join the new joined view you just created (`XXXPATIENTMEDICATIONS`) and the last virtualized table (`IMMUNIZATIONS`), to create a new joined view that has all three tables. Click the *`Join`* button.
+* Repeat the same steps as above, but this time choose to join the new joined view you just created (`XXXPATIENTMEDICATIONS`) and the last virtualized table (`CONDITIONS`), to create a new joined view that has all three tables. Click the *`Join`* button.
 
 ![Join final tables](../.gitbook/assets/images/dv/dv-join-select-tables-2.png)
 
-* Again join the two tables by selecting/mapping the `ID` from the *XXXPATIENTMEDICATIONS* table to `PATIENT` on the *IMMUNIZATIONS*. Do this by clicking on one and dragging it to another. When the line is drawn click on the *Next* button.
+* Again join the two tables by selecting/mapping the `ID` from the *XXXPATIENTMEDICATIONS* table to `PATIENT` on the *CONDITIONS*. Do this by clicking on one and dragging it to another. When the line is drawn click on the *Next* button.
 
 ![Map the ID to PATIENT keys](../.gitbook/assets/images/dv/dv-join-select-columns-2.png)
 
-* In the next panel we will accept the existing names for our columns. Click the *`Next`* button to continue.
+* In the next panel we can scroll to the right and see that there is a duplicate column for *Patient*. Rename one of them to *Patient-1* in order to avoid a naming conflict. Click the *`Next`* button to continue.
 
-* In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONSIMMUNIZATIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. If there is a `Submit to catalog` checkbox on the top right, unselect it and finally click the *`Create view`* button to add the virtualized aggregate view to your data.
+![Rename to Patient-1](../.gitbook/assets/images/dv/dv-rename-patient-1.png)
+
+* In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONSCONDITIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. If there is a `Submit to catalog` checkbox on the top right, unselect it and finally click the *`Create view`* button to add the virtualized aggregate view to your data.
 
 * You'll be notified that the join view creation has succeeded! Click on *`View my virtualized data`* button.
 
