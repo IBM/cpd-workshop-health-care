@@ -63,12 +63,6 @@ def print_unique_observation_codedescriptions(observation_fname):
 
 def transpose_observations(observation_fname):
     observations_df = pd.read_csv(observation_fname)
-    print(observations_df.shape)
-    spark = SparkSession.builder.getOrCreate()
-    df_data = spark.createDataFrame(observations_df)
-
-    df_data.printSchema()
-
     loinc_observations = { 
         "8302-2": "Height", "29463-7": "Weight", "6690-2": "Leukocytes", "789-8": "Erythrocytes",
         "718-7": "Hemoglobin", "4544-3": "Hematocrit", "787-2": "MCV", "785-6": "MCH", "786-4": "MCHC", 
@@ -82,21 +76,33 @@ def transpose_observations(observation_fname):
         "26515-7": "Platelet Count"
     }
 
-    '''
-    final_observations_df = None
-    
+    #cur_obs_df = observations_df[observations_df["CODE"].isin(list(loinc_observations.keys()))].filter(items=["DATE", "PATIENT", "ENCOUNTER", "VALUE", "CODE"])
+    #cur_obs_df.info()
+    #cur_obs_df.to_csv("/Users/jrtorres/tmp/test_process_obs.csv", index=False)
+
+    final_observations_df = pd.DataFrame() #None
     for loinc_code, obs_name in loinc_observations.items():
-        print("Capturing code: ", loinc_code)
-        col_name = obs_name + "[" + loinc_code + "]"
-        #cur_obs_df = (df_data.select("DATE", "PATIENT", "ENCOUNTER", "VALUE").withColumnRenamed('VALUE', col_name).filter((col("CODE") == loinc_code)))
-
-        if final_observations_df is None :
-            final_observations_df = cur_obs_df
+        print("========================================================")
+        print("Starting columns: ", list(final_observations_df))
+        col_name = obs_name + " [" + loinc_code + "]"
+        #print("Capturing Code: ", loinc_code, "Column Name: ", col_name)
+        cur_obs_df = pd.DataFrame()
+        cur_obs_df = observations_df[observations_df["CODE"] == loinc_code].filter(items=["DATE", "PATIENT", "ENCOUNTER", "VALUE"])
+        cur_obs_df.rename(columns = {'VALUE':col_name.upper()}, inplace = True)         
+        if final_observations_df.empty:
+            final_observations_df = cur_obs_df.copy()
         else:
-            final_observations_df.join(cur_obs_df, ["PATIENT", "DATE"])
+            if not cur_obs_df.empty:
+                print("Attemptin merge of: ", list(cur_obs_df))
+                final_observations_df = pd.merge(final_observations_df, cur_obs_df, on=["DATE","PATIENT", "ENCOUNTER"], how="outer")
+            else:
+                print("No observations for: ", col_name)
+        print("Ending columns: ", list(final_observations_df))
+        print("========================================================")
 
-    print(final_observations_df)
-    '''
+    print("Final Schema: ") 
+    final_observations_df.info()
+    final_observations_df.to_csv("/Users/jrtorres/tmp/test_process_obs2.csv", index=False)
 
 if __name__ == "__main__":
     if sys.version_info[0] < 3:
@@ -116,7 +122,7 @@ if __name__ == "__main__":
 
     #print_unique_observation_codedescriptions("/Users/jrtorres/tmp/observations_small.csv")
 
-    #transpose_observations(BASE_DIR + "observations_small_test.csv")
+    transpose_observations("/Users/jrtorres/tmp/observations_small_test.csv")
 
     elapsed = time.time() - started_time
     print("\nFinished script. Elapsed time: %f" % elapsed)
