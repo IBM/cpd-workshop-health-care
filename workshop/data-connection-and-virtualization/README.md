@@ -6,7 +6,8 @@ This section will cover aspects of collecting data in Cloud Pak for Data. Specif
 
 The section is broken up into the following steps:
 
-1. [Virtualize Data](#virtualize-data)
+1. [Create Virtualized Tables](#create-virtualized-tables)
+1. [Create Joined Virtual Views](#create-joined-virtual-views)
 1. [Grant Access to Virtualized Data](#grant-access-to-virtualized-data)
 
 ## Virtualizing Data
@@ -79,11 +80,21 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 * You'll be notified that the join view creation has succeeded! Click on *`View my virtualized data`* button.
 
-* From the `My virtualized data` page you should now see all three virtualized tables and two joined tables. Do not go to the next section until you have all the tables.
+* From the `My virtualized data` page you should now see all three virtualized tables and two joined tables. 
 
-![Our data sets at the end of this section](../.gitbook/assets/images/dv/dv-virtualized-data-all.png)
+![Joined and original data sets ](../.gitbook/assets/images/dv/dv-virtualized-data-all.png)
 
-## 2. Grant access to the virtualized data
+* Next we'll assign our virtual data to our project. Select the `Table` box, or all boxes individually, and click `Assign`.
+
+![Assign virtualized data to project](../.gitbook/assets/images/dv/dv-assign-to-project.png)
+
+* For *Assign to* choose `Project`, then select the project that you created in the [pre-work](../pre-work/README.md). Make sure that `Submit to catalog` is unchecked and click `Assign`.
+
+![Choose project and assign](../.gitbook/assets/images/dv/dv-choose-project-and-assign.png)
+
+* Go back to your virtualized data if you will complete the next section or finish with the [Conclusion](#conclusion)
+
+## 2. Grant access to virtualized data
 
 >*Note: This section only needs to be completed if there are non-Admin or non-Data Engineer users you are working in a group with. The instructors would have indicated that it needs to be completed to give those users access to the data you have virtualized above.*
 
