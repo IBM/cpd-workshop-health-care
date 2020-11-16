@@ -9,12 +9,13 @@ This section is broken up into the following steps:
 
 Various parts of this workshop will require the attendee to upload files or run scripts that we've stored in the repository. So let's get that done early on, you'll need [`git`](https://git-scm.com) on your laptop to clone the repository directly, or access to [GitHub.com](https://github.com/) to download the zip file.
 
-To Download, go to the [GitHub repo for this workshop](https://github.com/IBM/cpd-workshop-health-care) and download the archived version of the workshop and extract it on your laptop.
+* To Download, go to the [GitHub repo for this workshop](https://github.com/IBM/cpd-workshop-health-care) and download the archived version of the workshop and extract it on your laptop.
 
-<-- TODO Change below when downstream repo exists -->
-![download workshop zip](../.gitbook/assets/images/pre-work/cp4d-telco-workshop-git-zip-download.png)
+![download workshop zip](../.gitbook/assets/images/pre-work/cpd-git-zip-download.png)
 
-Alternately, run the following command:
+* Once Downloaded, you will need to unzip to extract the files in the repository.
+
+* Alternately, run the following command:
 
 ```bash
 git clone https://github.com/IBM/cpd-workshop-health-care
@@ -53,14 +54,12 @@ In Cloud Pak for Data, we use the concept of a project to collect / organize the
 
 ![Create project from file](../.gitbook/assets/images/pre-work/cpd-create-project-from-sample.png)
 
-* Navigate to where you cloned this repository, then to `projects/` and choose `Customer-Churn-Project.zip`. Give the project a name and click `Create`:
+* Navigate to where you cloned this repository, then to `projects/` and choose `HealthCareProject.zip`. Give the project a name and click `Create`:
 
-<-- TODO: Replace below when we have health-care-project.zip -->
 ![Browse for project files](../.gitbook/assets/images/pre-work/cpd-import-project.png)
 
-* After succesful creation, click on *View new project*
+* After succesful creation, click on *View new project*. You will see the new project with the imported assets.
 
-<-- TODO: Replace below when we have health-care-project.zip -->
 ![Import project success](../.gitbook/assets/images/pre-work/cpd-import-project-success.png)
 
 ### Create a Deployment Space
@@ -81,15 +80,21 @@ Cloud Pak for Data uses the concept of `Deployment Spaces` to configure and mana
 
 * Give your deployment space a unique name, optional description, then click `Create`. You will use this space later when you deploy a machine learning model.
 
-<-- TODO: Replace below when we have health-care Deployment Space -->
 ![Create deployment space](../.gitbook/assets/images/pre-work/cpd-create-deployment-space.png)
 
 * Next, we will add a collaborator to the new deployment space, so that assets we deploy can be monitored in the OpenScale model monitoring lab.
 
 * Click on the `Access control` tab and then click on `Add collaborators +` on the right.
 
-<-- TODO: Replace below when we have health-care Deployment Space -->
 ![Deployment space access control](../.gitbook/assets/images/pre-work/cpd-deployment-space-access-control.png)
+
+* Search for the *Admin* user, and then click on the `Admin` choice when it comes up. Click `Add to list +` and then the `Add` button.
+
+![Deployment space access search Admin](../.gitbook/assets/images/pre-work/cpd-access-search-admin.png)
+
+* The *Admin* user will show up under *Collaborators*.
+
+![Deployment space Admin successfully added](../.gitbook/assets/images/pre-work/cpd-collaborator-added.png)
 
 # Summary
 
