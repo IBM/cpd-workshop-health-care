@@ -37,7 +37,23 @@ You will be creating a DB2 Warehouse instance on IBM Cloud.
 
 * Repeat the data load steps for the `patients.csv` file, naming the table `PATIENTS`.
 
-* Repeat the data load steps for the `immunizations.csv` file, naming the table `IMMUNIZATIONS`.
+* Repeat the data load steps for the `conditions.csv` file, naming the table `CONDITIONS`.
+
+#### Get SSL Certificate
+
+* You will need an SSL certificate for Cloud Pak for Data to use the IBM Cloud DB2 Warehouse instance.
+
+* In the DB2 Warehouse console, from the upper-left (☰) hamburger menu click `Connection Info` -> `Connection Information`. Then click `Download SSL Certificate`:
+
+   ![DB2 get SSL certificate](../workshop/.gitbook/assets/images/connections/db2whoc-get-ssl-cert.png)
+
+* You'll need to convert the SSL certificate from `.crt` to a `.pem` file using [openssl](https://www.openssl.org/). Run the following command:
+
+  ```bash
+  openssl x509 -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.pem -outform PEM -inform DER
+  ```
+
+* Save this file for later use.
 
 ## Create DB2 Instance
 
