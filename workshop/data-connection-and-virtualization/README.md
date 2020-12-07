@@ -72,9 +72,9 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 ![Map the ID to PATIENT keys](../.gitbook/assets/images/dv/dv-join-select-columns-2.png)
 
-* In the next panel we can scroll to the right and see that there is a duplicate column for *Patient*. Rename one of them to *Patient-1* in order to avoid a naming conflict. Click the *`Next`* button to continue.
+* In the next panel we can scroll to the right and see that there are duplicate columns for *START,STOP,PATIENT,ENCOUNTER,CODE,DESCRIPTION*. Rename them by appending *CONDITION* to each in order to avoid a naming conflict. Click the *`Next`* button to continue.
 
-![Rename to Patient-1](../.gitbook/assets/images/dv/dv-rename-patient-1.png)
+![Rename to Patient-1](../.gitbook/assets/images/dv/dv-rename-conditions.png)
 
 * In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONSCONDITIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. If there is a `Submit to catalog` checkbox on the top right, unselect it and finally click the *`Create view`* button to add the virtualized aggregate view to your data.
 
