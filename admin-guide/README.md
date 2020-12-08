@@ -4,6 +4,7 @@ This section covers the setup and configuration of Cloud Pak for Data as a Servi
 
 1. [Create/Load Database(s)](#database-setup)
 1. [Configure Database Connections](#database-connection-configuration)
+1. [Configure Watson OpenScale](#watson-openscale-configuration)
 
 ## Database Setup
 
@@ -23,3 +24,10 @@ For Cloud Pak for Data to access the databases we setup above, we need to add *D
 
 Run through the instructions in the [Database Connection Configuration Readme](./database-connection-configuration.md)
 
+## Watson OpenScale Configuration
+
+We setup the a sample model and content in Watson OpenScale. (_Note: You must complete the *Database Setup* section before this section._).
+
+* Run fastpath configuration.
+
+Run through the instructions in the [OpenScale Configuration Readme](./wos-configuration.md)
