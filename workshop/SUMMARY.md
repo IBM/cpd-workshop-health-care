@@ -7,7 +7,8 @@
 ### Health Care Workshop
 
 * [Data Connetion and Virtualization](data-connection-and-virtualization/README.md)
-* [Watson Knowledge Catalog for Admins](watson-knowledge-catalog-admin/README.md)
+* [Data Visualization with Data Refinery](data-visualization-and-refinery/README.md)
+* [Monitoring models with OpenScale GUI (Fastpath Monitoring)](openscale-fastpath/README.md)
 
 ### Workshop Resources
 
