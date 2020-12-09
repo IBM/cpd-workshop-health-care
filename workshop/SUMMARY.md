@@ -8,11 +8,13 @@
 
 * [Data Connetion and Virtualization](data-connection-and-virtualization/README.md)
 * [Data Visualization with Data Refinery](data-visualization-and-refinery/README.md)
+* [Enterprise data governance for Admins using Watson Knowledge Catalog](watson-knowledge-catalog-admin/README.md)
+* [Machine Learning with AutoAI](machine-learning-autoai/README.md)
 * [Monitoring models with OpenScale GUI (Fastpath Monitoring)](openscale-fastpath/README.md)
 
 ### Workshop Resources
 
-* [Instructor Guide]()
+* [Instructor Guide](../admin-guide/README.md)
 
 ### Resources
 
