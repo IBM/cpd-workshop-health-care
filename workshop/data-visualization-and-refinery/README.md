@@ -13,9 +13,9 @@ This section is broken up into the following steps:
 
 ## 1. Load Data
 
-* Go the (☰) navigation menu and click on the *Projects* link and then click on your analytics project.
+* Go the (☰) navigation menu and click on the *Projects* -> *All projects* link and then click on your analytics project.
 
-![(☰) Menu -> Projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
+![(☰) Menu -> Projects -> All projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
 
 * From the *Project* home, under the *Assets* tab, ensure the *Data assets* section is expanded or click on the arrow to toggle it and open up the list of data assets.
 
@@ -38,6 +38,7 @@ We'll start out in the *Data* tab where we wrangle, shape and refine our data. A
 ![Command line filter](../.gitbook/assets/images/dr/dr-cli-filter.png)
 
 * A `filter` operation syntax will be displayed in the Command line. Clicking on the operation name within the Command line will give hints on the syntax and how to use the command. For instance the following command filters for Patients who live in `Lancaster`:
+
   ``` R
   filter(`CITY` == 'Lancaster')
   ```
@@ -75,9 +76,9 @@ We'll start out in the *Data* tab where we wrangle, shape and refine our data. A
 
 * Let's say we've decide that there are columns that we don't want to leave in our dataset ( maybe because they might not be usefule features in our Machine Learning model, or because we don't want to make those data attributes accessible to others, or any other reason). We'll remove the `PREFIX`, `FIRST`, `LAST`, `SUFFIX`, and `MAIDEN` columns.
 
-* For each columnn to be removed: Click the `+Operation` button, then select the `Remove` operation. Click the `Change column selection` option, choose the desired column to remove (i.e. `PREFIX`), click `Next` and click `Apply`.
+* For each columnn to be removed: Click the `+Operation` button, then select the `Remove` operation. Choose the desired column to remove (i.e. `PREFIX`), click `Next` and click `Apply`.
 
-![Remove Column](../.gitbook/assets/images/dr/dr-remove-change-column.png)
+![Remove Column](../.gitbook/assets/images/dr/dr-remove-column.png)
 
 * The columns will be removed. Repeat for each of the above columns.
 
@@ -95,11 +96,21 @@ Data Refinery allows you to run jobs at scheduled times, and save the output. In
 
 ![Click jobs icon](../.gitbook/assets/images/dr/dr-save-and-create-job.png)
 
-* Give the job a name and optional description. Note that you can `Edit` the steps in this Data Refinery flow at this time. Also, note the output name, which in this case is * USER1001.SDAPATIENTMEDICATIONSCONDITIONS_shaped.csv* . Click the `Create and Run` button.
+* Give the job a name and optional description. Click `Next`.
+
+![Name refinery job](../.gitbook/assets/images/dr/dr-name-job.png)
+
+* Click `Next` on the *Configure* tab. Note that you could change *Select environment* to a different one at this time, assuming that you had alternate environments in your project.
+
+* Under the *Schedule* tab, click the `Schedule to run` slider. Click around and notice that you can set the `Start on` time, which has a "calendar" icon for choosing the date.  The `Repeat` choice works in the same way.. We won't schedule a job at this time, so go ahead and click the `Schedule to run` slider, and it will switch to `Schedule off`. Click `Next` to move on.
+
+![Schedule refinery job](../.gitbook/assets/images/dr/dr-schedule-job.png)
+
+* Finally, under the *Review and create* tab you can `Edit` the Details, Configuration, or Schedule in this Data Refinery job. Also, hover over the output name, which in this case is * SCOTTDA.SDAPATIENTMEDICATIONSCONDITIONS_shaped.csv* . Click the `Create and Run` button.
 
 ![Create and Run Refinery job](../.gitbook/assets/images/dr/dr-create-and-run-job.png)
 
-* The job will be listed as *Status* *`Running`* and then the *Status* will change to *`Completed`*.
+* The job will be listed as *Status* *`Running`* and then the *Status* will change to *`Completed`*. You can click `Edit job` to make changes to the job.
 
 ![Click Edit to schedule job](../.gitbook/assets/images/dr/dr-job-running.png)
 
@@ -109,9 +120,13 @@ Data Refinery allows you to run jobs at scheduled times, and save the output. In
 
 ### 3. Profile Data
 
-* Go back to the top level of the data refinery view by clicking on the flow asset under the *'Associated Asset'* section in the scheduled job page.
+* Go back to your project by clicking on the project name in the directory path.
 
-![Back to refinery flow](../.gitbook/assets/images/dr/dr-flow-assset.png)
+![Back to project](../.gitbook/assets/images/dr/dr-return-to-project.png)
+
+* Return to the profile view by clicking the check box next to the merged data asset  *XXXPATIENTMEDICATIONSCONDITIONS* (where `XXX` is your username or the username of the person who granted you data access) to check it, then click the 3 vertical dots to the right, and select the *Refine* option from the menu.
+
+![Launch the action menu](../.gitbook/assets/images/dr/dr-launch-table.png)
 
 * Clicking on the *Profile* tab will bring up a view of several statistics and histograms for the attributes in your data.
 
@@ -135,21 +150,21 @@ Let's do some visual exploration of our data using charts and graphs. We can acc
 
 ![Select columns](../.gitbook/assets/images/dr/dr-vis-choose-columns.png)
 
-* We first see that the select chart is a Scatter plot. There is some clustering of higher total costs on the left side of the graph, indicating higher total costs for older people, as expected. Hovering over the outlier on the y-axis shows an individual born 1934-04-20 that had total costs of 1,583,003 , a real outlier. We may wish to remove this individual from the dataset during the feature engineering phase of building a machine learning model, as it is likely to skew the results.
+* We first see that the select chart is a Scatter plot. There is some clustering of higher total costs on the left side of the graph, indicating higher total costs for older people, as expected. Hovering over the outlier on the y-axis shows an individual with a very high total cost. We may wish to remove this individual from the dataset during the feature engineering phase of building a machine learning model, as it is likely to skew the results.
 
-![Outlier](../.gitbook/assets/images/dr/dr-vis-choose-columns.png)
+![Outlier](../.gitbook/assets/images/dr/dr-vis-outlier.png)
 
-* Move the slider at the bottom of the Scatter plot to the right a bit to scroll past that one outlier individual and we can see a more even distribution, with another individual born 1945-01-02 that has TOTALCOST of 202,617, which is similar to others in the distribution.
+* Move the slider at the bottom of the Scatter plot to the right a bit to scroll past that one outlier individual and we can see a more even distribution. Scroll back and forth to explore, noticing how the maximum for TOTALCOST tends to go down as the BIRTHDATE gets more recent. Hover over any data point to bring up the details.
 
 ![Scroll Scatter plot](../.gitbook/assets/images/dr/dr-vis-scroll-scatter-plot.png)
 
 * Also note that we can add items like *Primary title*, *Subtitle*, and *Footnote*.
 
-* Under the `Actions` panel, notice that you can perform tasks such as *Start over*, *Download chart details*, *Download chart image*, or set *Global visualization preferences* (_Note: Hover over the icons to see the names_).
+* Click on the `Actions` arrow and  notice that you can perform tasks such as *Download chart details*, *Download chart image*, *Field format* or set *Global visualization preferences*.
 
 ![Actions Download chart details](../.gitbook/assets/images/dr/dr-vis-actions.png)
 
-* Click on the "gear" icon in the `Actions` panel. We see that we can do things in the *Global visualization preferences* for *Titles*, *Tools*, *Theme*, and *Notifications*. Click on the `Theme` tab and update the color scheme to *Dark*. Then click the `Apply` button, now the colors for all of our charts will reflect this. Play around with various Themes and find one that you like.
+* Click on the *Global visualization preferences* in the *Actions* menu. Click and explore the tabs for *Titles*, *Tools*, *Theme*. You can launch the *Theme Builder* to get creative with colors and themes, and save a default.
 
 ![Visualize set theme and choose preferences](../.gitbook/assets/images/dr/dr-vis-choose-theme.png)
 
