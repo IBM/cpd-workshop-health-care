@@ -38,23 +38,23 @@ Launch a browser and navigate to your Cloud Pak for Data deployment
 
 In Cloud Pak for Data, we use the concept of a project to collect / organize the resources used to achieve a particular goal (resources to build a solution to a problem). Your project resources can include data, collaborators, and analytic assets like notebooks and models, etc.
 
-* Go the (☰) menu and click *Projects*
+* Go the (☰) menu and click *Projects* -> *All projects*.
 
-![(☰) Menu -> Projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
+![(☰) Menu -> Projects -> All projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
 
-* Click on *New project +*
+* Click on *New project +*.
 
 ![Start a new project](../.gitbook/assets/images/pre-work/cpd-new-project.png)
 
-* Select *Analytics project* for the project type and click on *Next*
+* Select *Analytics project* for the project type and click on *Next*.
 
 ![Select project type](../.gitbook/assets/images/pre-work/cpd-project-type.png)
 
-* We are going to create a project from an existing file (which contains assets we will use throughout this workshop), as opposed to creating an empty project. Select the _*Create a project from a file*_ option:
+* We are going to create a project from an existing file (which contains assets we will use throughout this workshop), as opposed to creating an empty project. Select the _*Create a project from a file*_ option.
 
 ![Create project from file](../.gitbook/assets/images/pre-work/cpd-create-project-from-sample.png)
 
-* Navigate to where you cloned this repository, then to `projects/` and choose `HealthCareProject.zip`. Give the project a name and click `Create`:
+* Navigate to where you cloned this repository, then to `projects/` and choose `HealthCareProject.zip`. Give the project a name and click `Create`.
 
 ![Browse for project files](../.gitbook/assets/images/pre-work/cpd-import-project.png)
 
@@ -66,11 +66,11 @@ In Cloud Pak for Data, we use the concept of a project to collect / organize the
 
 Cloud Pak for Data uses the concept of `Deployment Spaces` to configure and manage the deployment of a set of related deployable assets. These assets can be data files, machine learning models, etc.
 
-* Go the (☰) menu and click `Analyze` -> `Analytics deployments`:
+* Go the (☰) menu and click `Deployments`.
 
-![(☰) Menu -> Analytics deployments](../.gitbook/assets/images/pre-work/cpd-choose-analytics-deployments.png)
+![(☰) Menu -> Deployments](../.gitbook/assets/images/pre-work/cpd-choose-deployments.png)
 
-* Click on `+ New deployment space`:
+* Click on `New deployment space +`.
 
 ![Add New deployment space](../.gitbook/assets/images/pre-work/cpd-add-new-deployment-space.png)
 
