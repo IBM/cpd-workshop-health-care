@@ -9,6 +9,10 @@ We will use the features of AutoAi to perform an experiment based on the followi
 The TOTALCOST of medications prescribed for a patient is correlated with various features. These features include the following from our data set: *MARITAL,RACE,ETHNICITY,BIRTHPLACE,CITY,STATE,REASONDESCRIPTION,DESCRIPTIONCONDITION*
 ```
 
+The user persona involved is the Data Scientist. We'll use data from our project in `.csv` format and then create and configure an AutoAI experiment. If we get a result we like, we can save the model and them promote to our deployment space to be deployed later for consumption via a REST API:
+
+![AutoAI sequence diagram](../.gitbook/assets/images/autoai/machine-learning-autoai.png)
+
 This section is broken up into the following steps:
 
 - [Automate model building with AutoAI](#automate-model-building-with-autoai)
