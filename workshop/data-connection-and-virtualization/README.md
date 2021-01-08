@@ -2,6 +2,10 @@
 
 This section will cover aspects of collecting data in Cloud Pak for Data. Specifically we will be connecting to different data sources and creating views against those data sources to create a single unified set of data assets that can be used in other modules of this workshop.
 
+The user persona involved is a Data Steward. The data can exist on any database, on premise or on the cloud. Using IBM Data Virtualization we can access the data without moving it, using specifically crafted SQL queries to view the data, join the data and perform other operations. The sequence we will follow will be:
+
+![Data Virtualization sequence diagram](../.gitbook/assets/images/dv/dv-sequence-diagram.png)
+
 > **Note: To complete this section, an Admin or Data Engineer role needs to be assigned to your user account. The workshop instructor will assign this role as appropriate.**
 
 The section is broken up into the following steps:
