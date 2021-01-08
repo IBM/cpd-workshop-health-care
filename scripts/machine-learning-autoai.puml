@@ -1,0 +1,12 @@
+@startuml machine-learning-autoai 
+
+Title AutoAI
+
+"Data Scientist" -> "AutoAI service" : Create AutoAI experiment
+"Data Scientist" -> "AutoAI service" : Select Data
+"Data Scientist" -> "AutoAI service" : Configure and run experiment
+"Data Scientist" -> "AutoAI service" : Save model
+"AutoAI service" -> "CPD object storage" : Save model
+"Data Scientist" -> "Watson machine learning service" : Promote model to deployment space
+
+@enduml
