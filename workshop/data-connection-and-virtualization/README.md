@@ -16,13 +16,13 @@ In this section, we will gather data from several tables across data sources. We
 
 ### Create Virtualized Tables
 
-* To launch the data virtualization tool, go the (☰) navigation menu and click `Collect` -> `Data virtualization`.
+* To launch the data virtualization tool, go the (☰) navigation menu and click `Data` -> `Data virtualization`.
 
-![(☰) Menu -> Collect -> Data Virtualization](../.gitbook/assets/images/dv/dv-menu.png)
+![(☰) Menu -> Data -> Data Virtualization](../.gitbook/assets/images/dv/dv-menu.png)
 
-* From the Data virtualization sub-menu, Click on the *Menu* drop down list and choose *Virtualize*.
+* From the Data virtualization sub-menu, Click on the *Menu* drop down list and choose *Virtualization* -> *Virtualize*.
 
-![Menu -> Virtualize](../.gitbook/assets/images/dv/dv-virtualize-menu.png)
+![Menu -> Virtualization -> Virtualize](../.gitbook/assets/images/dv/dv-virtualize-menu.png)
 
 * Several tables names will be displayed across any of the data sources that are included in the data virtualization server. You will notice that on the right panel, we can filter the tables being displayed by selecting the datasource.
 
@@ -32,7 +32,7 @@ In this section, we will gather data from several tables across data sources. We
 
 ![Choose the tables to virtualize](../.gitbook/assets/images/dv/dv-virtualize-tables.png)
 
-* The next panel prompts you to select where to assign the virtualized tables. Select the `My virtualized data` radio button. If there is a `Submit to catalog` checkbox on the top right, unselect it and finally click the *`Virtualize`* button to add the virtualized tables to your data (we left the default values, so the tables will be virtualized under your own user schema with the same table names as the original tables).
+* The next panel prompts you to select where to assign the virtualized tables. Select the `My virtualized data` radio button. Click the *`Virtualize`* button to add the virtualized tables to your data (we left the default values, so the tables will be virtualized under your own user schema with the same table names as the original tables).
 
 ![Add virtualized data to your project](../.gitbook/assets/images/dv/dv-virtualize-assign.png)
 
@@ -56,7 +56,7 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 ![Review joined column names](../.gitbook/assets/images/dv/dv-join-col-names-review.png)
 
-* In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. If there is a `Submit to catalog` checkbox on the top right, unselect it and finally click the *`Create view`* button to add the virtualized aggregate view to your data.
+* In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. Click the *`Create view`* button to add the virtualized aggregate view to your data.
 
 ![Review the proposed joined table](../.gitbook/assets/images/dv/dv-join-assign-review.png)
 
@@ -92,6 +92,10 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 ![Choose project and assign](../.gitbook/assets/images/dv/dv-choose-project-and-assign.png)
 
+* Click *Publish* for "Publish virtual assets to the catalog". Leave the box for "Publish as duplicates..." unchecked.
+
+![Publish virtual assets to the catalog](../.gitbook/assets/images/dv/dv-publish-to-catalog.png)
+
 * Go back to your virtualized data if you will complete the next section or finish with the [Conclusion](#conclusion)
 
 ## 2. Grant access to virtualized data
@@ -100,13 +104,13 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 In order for other users to have access to the data that you just virtualized, you need to grant them access. Follow these steps to make your Virtualized data visible to them.
 
-* To launch the data virtualization tool, go the (☰) navigation menu and click `Collect` -> `Data virtualization`.
+* If you are not already in the data virtualization tool, launch the tool by going to the (☰) navigation menu and click `Data` -> `Data virtualization`.
 
-![(☰) Menu -> Collect -> Data Virtualization](../.gitbook/assets/images/dv/dv-menu.png)
+![(☰) Menu -> Data -> Data Virtualization](../.gitbook/assets/images/dv/dv-menu.png)
 
-* From the Data virtualization sub-menu, Click on the *Menu* drop down list and choose *`My virtualized data`*.
+* From the Data virtualization sub-menu, Click on the *Menu* drop down list and choose *Virtualization* -> *`My virtualized data`*.
 
-![My virtualized data](../.gitbook/assets/images/dv/dv-menu-myvirtualizeddata.png)
+![My virtualized data](../.gitbook/assets/images/dv/dv-menu-my-virtualized-data.png)
 
 * For one of the virtualized data assets you've created, click the 3 vertical dots on the right (*Note: you will have to hover over the area all the way on the right of the table row to see the dots.*) and choose `Manage access`.
 
