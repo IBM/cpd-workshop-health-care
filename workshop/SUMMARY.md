@@ -14,7 +14,7 @@
 
 ### Workshop Resources
 
-* [Instructor Guide](../admin-guide/README.md)
+* [Instructor Guide](admin-guide/README.md)
 
 ### Resources
 
