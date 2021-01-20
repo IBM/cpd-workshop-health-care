@@ -11,7 +11,7 @@ Various parts of this workshop will require the attendee to upload files or run 
 
 * To Download, go to the [GitHub repo for this workshop](https://github.com/IBM/cpd-workshop-health-care) and download the archived version of the workshop and extract it on your laptop.
 
-![download workshop zip](../.gitbook/assets/images/pre-work/cpd-git-zip-download.png)
+![download workshop zip](../images/pre-work/cpd-git-zip-download.png)
 
 * Once Downloaded, you will need to unzip to extract the files in the repository.
 
@@ -32,7 +32,7 @@ Launch a browser and navigate to your Cloud Pak for Data deployment
 
 > **NOTE:** Your instructor will provide a URL and credentials to log into Cloud Pak for Data!
 
-![Cloud Pak for Data login](../.gitbook/assets/images/pre-work/cpd-login.png)
+![Cloud Pak for Data login](../images/pre-work/cpd-login.png)
 
 ### Create a New project
 
@@ -40,27 +40,27 @@ In Cloud Pak for Data, we use the concept of a project to collect / organize the
 
 * Go the (☰) menu and click *Projects*
 
-![(☰) Menu -> Projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
+![(☰) Menu -> Projects](../images/pre-work/cpd-projects-menu.png)
 
 * Click on *New project +*
 
-![Start a new project](../.gitbook/assets/images/pre-work/cpd-new-project.png)
+![Start a new project](../images/pre-work/cpd-new-project.png)
 
 * Select *Analytics project* for the project type and click on *Next*
 
-![Select project type](../.gitbook/assets/images/pre-work/cpd-project-type.png)
+![Select project type](../images/pre-work/cpd-project-type.png)
 
 * We are going to create a project from an existing file (which contains assets we will use throughout this workshop), as opposed to creating an empty project. Select the _*Create a project from a file*_ option:
 
-![Create project from file](../.gitbook/assets/images/pre-work/cpd-create-project-from-sample.png)
+![Create project from file](../images/pre-work/cpd-create-project-from-sample.png)
 
 * Navigate to where you cloned this repository, then to `projects/` and choose `HealthCareProject.zip`. Give the project a name and click `Create`:
 
-![Browse for project files](../.gitbook/assets/images/pre-work/cpd-import-project.png)
+![Browse for project files](../images/pre-work/cpd-import-project.png)
 
 * After succesful creation, click on *View new project*. You will see the new project with the imported assets.
 
-![Import project success](../.gitbook/assets/images/pre-work/cpd-import-project-success.png)
+![Import project success](../images/pre-work/cpd-import-project-success.png)
 
 ### Create a Deployment Space
 
@@ -68,33 +68,33 @@ Cloud Pak for Data uses the concept of `Deployment Spaces` to configure and mana
 
 * Go the (☰) menu and click `Analyze` -> `Analytics deployments`:
 
-![(☰) Menu -> Analytics deployments](../.gitbook/assets/images/pre-work/cpd-choose-analytics-deployments.png)
+![(☰) Menu -> Analytics deployments](../images/pre-work/cpd-choose-analytics-deployments.png)
 
 * Click on `+ New deployment space`:
 
-![Add New deployment space](../.gitbook/assets/images/pre-work/cpd-add-new-deployment-space.png)
+![Add New deployment space](../images/pre-work/cpd-add-new-deployment-space.png)
 
 * Select the _*Create an empty space*_ option.
 
-![Create empty deployment space](../.gitbook/assets/images/pre-work/cpd-create-empty-deployment-space.png)
+![Create empty deployment space](../images/pre-work/cpd-create-empty-deployment-space.png)
 
 * Give your deployment space a unique name, optional description, then click `Create`. You will use this space later when you deploy a machine learning model.
 
-![Create deployment space](../.gitbook/assets/images/pre-work/cpd-create-deployment-space.png)
+![Create deployment space](../images/pre-work/cpd-create-deployment-space.png)
 
 * Next, we will add a collaborator to the new deployment space, so that assets we deploy can be monitored in the OpenScale model monitoring lab.
 
 * Click on the `Access control` tab and then click on `Add collaborators +` on the right.
 
-![Deployment space access control](../.gitbook/assets/images/pre-work/cpd-deployment-space-access-control.png)
+![Deployment space access control](../images/pre-work/cpd-deployment-space-access-control.png)
 
 * Search for the *Admin* user, and then click on the `Admin` choice when it comes up. Click `Add to list +` and then the `Add` button.
 
-![Deployment space access search Admin](../.gitbook/assets/images/pre-work/cpd-access-search-admin.png)
+![Deployment space access search Admin](../images/pre-work/cpd-access-search-admin.png)
 
 * The *Admin* user will show up under *Collaborators*.
 
-![Deployment space Admin successfully added](../.gitbook/assets/images/pre-work/cpd-collaborator-added.png)
+![Deployment space Admin successfully added](../images/pre-work/cpd-collaborator-added.png)
 
 # Summary
 
