@@ -9,6 +9,10 @@ We will use the features of AutoAi to perform an experiment based on the followi
 The TOTALCOST of medications prescribed for a patient is correlated with various features. These features include the following from our data set: *MARITAL,RACE,ETHNICITY,BIRTHPLACE,CITY,STATE,REASONDESCRIPTION,DESCRIPTIONCONDITION*
 ```
 
+The user persona involved is the Data Scientist. We'll use data from our project in `.csv` format and then create and configure an AutoAI experiment. If we get a result we like, we can save the model and them promote to our deployment space to be deployed later for consumption via a REST API:
+
+![AutoAI sequence diagram](../.gitbook/assets/images/autoai/machine-learning-autoai.png)
+
 This section is broken up into the following steps:
 
 - [Automate model building with AutoAI](#automate-model-building-with-autoai)
@@ -22,9 +26,9 @@ This section is broken up into the following steps:
 
 ## 1. Run AutoAI Experiment
 
-* Go the (☰) navigation menu, expand `Projects` and then click on your analytics project.
+* Go the (☰) menu and click *Projects* -> *All projects* and then click on the analytics project that you created in the [pre-work section](../pre-work/README.md).
 
-![(☰) Menu -> your project](../.gitbook/assets/images/navigation/autoai-menu-your-project.png)
+![(☰) Menu -> Projects -> All projects](../.gitbook/assets/images/pre-work/cpd-projects-menu.png)
 
 * To start the AutoAI experiment, click the `Add to project +` button from the top of the page and select the `AutoAI experiment` option.
 
@@ -64,6 +68,8 @@ AutoAI will set up default values for the experiment based on the dataset and th
 
 * Next click the *Prediction* tab on the left, under *Experimental settings*. You will see that the AutoAI tool has already selected *Regression* for the prediction type, which makes sense since we are looking at *TOTALCOST*, a continuous numeric feature. Scroll down to see that you can choose which *Algorithms to test* and how many top *Algorithms to use*. We can leave these unchanged.
 
+* Click on the *Runtime* tab and examine the settings. We will not change these.
+
 * Click *Save settings*. Finally, click *Run experiment*.
 
 ![Choose TOTALCOST column and run](../.gitbook/assets/images/autoai/autoai-choose-prediction-and-run.png)
@@ -83,49 +89,56 @@ AutoAI will set up default values for the experiment based on the dataset and th
 
 ## 2. Examine the results
 
-* Once the experiment completes, you can explore the various pipelines and options in the UI. Hover over one of the pipelines in the *Relationship map* to see the *Feature Transformers* and *Top algorithms* used, as well as other details.
+* Once the experiment completes, you can explore the various pipelines and options in the UI. Hover over one of the pipelines in the *Relationship map* to see the *Feature Transformers* and *Top algorithms* used, as well as other details. You can *View full log* and/or change the *Rank by:* order.
 
 ![autoai pipelines created](../.gitbook/assets/images/autoai/autoai-pipelines-complete.png)
 
 * Click on the *Pipeline comparison* tab to see each pipeline and the associated metrics. Highlight a pipeline for details.
 
-![Pipeline comparison](../.gitbook/assets/images/autoai/autoai-pipelines-complete.png)
+![Pipeline comparison](../.gitbook/assets/images/autoai/autoai-pipelines-comparison.png)
 
 * Scroll down to see the `Pipeline leaderboard`. Note that you can rank by various metrics, i.e. *Root mean squared error*. 
 
 ![Pipeline leaderboard ranking](../.gitbook/assets/images/autoai/autoai-pipeline-leaderboard-ranking.png)
 
-* The next step is to select the model that gives the best result and view its performance. In this case, Pipeline 5 gave the best result for our experiment. You can view the detailed results by clicking the corresponding pipeline name from the leaderboard:
-
-![pipeline leaderboard](../.gitbook/assets/images/autoai/autoai-pipeline-leaderboard-topranked.png)
+* The next step is to select the model that gives the best result and view its performance. In this case, Pipeline 8 gave the best result for our experiment. Your run of AutoAI might yeild different results. You can view the detailed results by clicking the corresponding pipeline name from the leaderboard.
 
 * The model evaluation page will show metrics for the experiment, confusion matrix, feature transformations that were performed (if any), which features contribute to the model, and more details of the pipeline. Optionally, feel free to click through these views of the pipeline details.
 
 ![Model evaluation](../.gitbook/assets/images/autoai/autoai-top-pipeline-details.png)
 
+* Look at the *Feature Transformations* tab to see "new features created during pipeline building, along with the transformation function(s) and the original feature(s) transformed."
+
+![Feature Transformations](../.gitbook/assets/images/autoai/autoai-feature-transformations.png)
+
+* The *Feature Importance* tab will give the relative weights of the various features in determing the prediction that the model makes. Note that some of the features may be a result of Feature Transformation.
+
+![Feature Importance](../.gitbook/assets/images/autoai/autoai-feature-importance.png)
+
 What are the results of this experiment? The conclusion I take from this experiment is: 
 
-```There is not a good correlation between the chosen features (MARITAL,RACE,ETHNICITY,BIRTHPLACE,CITY,STATE,REASONDESCRIPTION,DESCRIPTIONCONDITION) and the label we are trying to predict (TOTALCOST).
+```
+There is not a good correlation between the chosen features (MARITAL,RACE,ETHNICITY,BIRTHPLACE,CITY,STATE,REASONDESCRIPTION,DESCRIPTIONCONDITION) and the label we are trying to predict (TOTALCOST).
 ```
 
-The Root Mean Squared Error in the case of our example is *20877.540*, which is *Terrible* ! So, is this experiment a failure?
+The Root Mean Squared Error in the case of our example is *92,410.338*, which is *Terrible* ! So, is this experiment a failure?
 No, it is not a failure as an experiment. Using AutoAi we were able to quickly test a hypothesis and determine that the hypothesis was incorrect. In that sense, this experiment is not a failure. But, we failed to produce a useful Machine Learning model that would enable us to make a good prediction.
 
 We could use AutoAI to create further experiments, in the hopes of proving a valid hypothesis and creating a useful machine learning model. Let's have a look at the steps we might take if we had actually created a satisfactory model, and wished to save and deploy that model for use in an application.
 
+* Close the pipeline details window by clicking on the `X` in the upper-right corner.
+
 ## 3. Save the model
 
-* In order to deploy this model, click on the `Save as` button and select the `Model` option to save it.
+* In order to deploy this model, click on the `Save as` button next to the pipeline you have chosen to save.
 
 ![Save model](../.gitbook/assets/images/autoai/autoai-pipeline-save-model.png)
 
-> NOTE: If you wish, you can also save your AutoAI experiment as a Jupyter notebook, to allow fine tuning using Python code.
+* Choose *Model* if you want to Create a Watson Machine Learning model asset that you can test with new data, deploy to generate predictions, and trace lineage activity. Choose *Notebook* if you wish to create a notebook if you want to view the code that created this model pipeline or interact with with the model programatically. Give an optional description and optional tags.
 
-* In the `Save as model` window you can accept the default values or give your model a meaningful name/description and then click the `Save` button.
+![Choose model or notebook](../.gitbook/assets/images/autoai/autoai-pipeline-choose-model-or-notebook.png)
 
-![Save model name](../.gitbook/assets/images/autoai/autoai-save-model-name.png)
-
-* You will receive a notification to indicate that your model is saved to your project. View the model details by clicking *View in project* or go back to your project main page by clicking on the project name on the navigator on the top left, and then click the saved model in the `Models` section of the `Assets` page.
+* Click `Create`. You will receive a notification to indicate that your model is saved to your project. View the model details by clicking *View in project* or go back to your project main page by clicking on the project name on the navigator on the top left, and then click the saved model in the `Models` section of the `Assets` page.
 
 ![Select Project](../.gitbook/assets/images/autoai/autoai-project-navigator.png)
 
@@ -135,11 +148,11 @@ We could use AutoAI to create further experiments, in the hopes of proving a val
 
 ![Deploying the model](../.gitbook/assets/images/autoai/autoai-promote-to-space.png)
 
-* Select the deployment space that was created as part of the pre-work as the `Target space` and click `Promote`.
+* Select the deployment space that was created as part of the pre-work as the `Target space`. Add an optional Description or Tags and click `Promote`.
+
+![Promoting the model](../.gitbook/assets/images/autoai/autoai-promote-tags-description.png)
 
 > ***Note***: This is assuming you have already created a deployment space in the `pre-work` section of the workshop. 
-
-![Promote model](../.gitbook/assets/images/autoai/autoai-promote-to-space-confirm.png)
 
 * You will see a notification that the model was promoted to the deployment space succesfully.
 
