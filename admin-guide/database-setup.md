@@ -17,17 +17,17 @@ You will be creating a DB2 Warehouse instance on IBM Cloud.
 
 * Once the service is provisioned, Go to `Service Credentials` and click `New credential +`. Open `View credentials` and copy the credentials (this is your connection details) for use later.
 
-   ![Get DB2 Warehouse credentials](../workshop/.gitbook/assets/images/connections/db2whoc-credentials.png)
+   ![Get DB2 Warehouse credentials](../workshop/images/connections/db2whoc-credentials.png)
 
 #### Load Data
 
 * Now go to `Manage` and click `Open Console`:
 
-   ![DB2 Warehouse Cloud open console](../workshop/.gitbook/assets/images/connections/db2whoc-manage-console.png)
+   ![DB2 Warehouse Cloud open console](../workshop/images/connections/db2whoc-manage-console.png)
 
 * From the upper-left (☰) hamburger menu click `Load` -> `Load data`:
 
-   ![DB2 Warehouse Cloud load data](../workshop/.gitbook/assets/images/connections/db2whoc-load-data.png)
+   ![DB2 Warehouse Cloud load data](../workshop/images/connections/db2whoc-load-data.png)
 
 * Choose `Browse file` and navigate to where you cloned this repository, then to `data/` and choose `medications.csv`, then click `Next`.
 
@@ -45,7 +45,7 @@ You will be creating a DB2 Warehouse instance on IBM Cloud.
 
 * In the DB2 Warehouse console, from the upper-left (☰) hamburger menu click `Connection Info` -> `Connection Information`. Then click `Download SSL Certificate`:
 
-   ![DB2 get SSL certificate](../workshop/.gitbook/assets/images/connections/db2whoc-get-ssl-cert.png)
+   ![DB2 get SSL certificate](../workshop/images/connections/db2whoc-get-ssl-cert.png)
 
 * You'll need to convert the SSL certificate from `.crt` to a `.pem` file using [openssl](https://www.openssl.org/). Run the following command:
 
@@ -63,6 +63,6 @@ If you are running the OpenScale Lab, you will need a DB2 Server instance (DB2 W
 
 * Once the service is provisioned, Go to `Service Credentials` and click `New credential +`. Open `View credentials` and copy the credentials for use later.
 
-  ![Get DB2 Warehouse credentials](../workshop/.gitbook/assets/images/connections/db2-server-credential.png)
+  ![Get DB2 Warehouse credentials](../workshop/images/connections/db2-server-credential.png)
 
 __THIS SECTION IS COMPLETE, GO BACK AND CONTINUE WITH THE [ADMIN GUIDE](./README.md)__
