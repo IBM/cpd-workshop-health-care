@@ -4,7 +4,7 @@ This section will cover aspects of collecting data in Cloud Pak for Data. Specif
 
 The user persona involved is a Data Steward. The data can exist on any database, on premise or on the cloud. Using IBM Data Virtualization we can access the data without moving it, using specifically crafted SQL queries to view the data, join the data and perform other operations. The sequence we will follow will be:
 
-![Data Virtualization sequence diagram](../.gitbook/assets/images/dv/dv-sequence-diagram.png)
+![Data Virtualization sequence diagram](../images/dv/dv-sequence-diagram.png)
 
 > **Note: To complete this section, an Admin or Data Engineer role needs to be assigned to your user account. The workshop instructor will assign this role as appropriate.**
 
@@ -22,11 +22,11 @@ In this section, we will gather data from several tables across data sources. We
 
 * To launch the data virtualization tool, go the (☰) navigation menu and click `Data` -> `Data virtualization`.
 
-![(☰) Menu -> Data -> Data Virtualization](../.gitbook/assets/images/dv/dv-menu.png)
+![(☰) Menu -> Data -> Data Virtualization](../images/dv/dv-menu.png)
 
 * From the Data virtualization sub-menu, Click on the *Menu* drop down list and choose *Virtualization* -> *Virtualize*.
 
-![Menu -> Virtualization -> Virtualize](../.gitbook/assets/images/dv/dv-virtualize-menu.png)
+![Menu -> Virtualization -> Virtualize](../images/dv/dv-virtualize-menu.png)
 
 * Several tables names will be displayed across any of the data sources that are included in the data virtualization server. You will notice that on the right panel, we can filter the tables being displayed by selecting the datasource.
 
@@ -50,15 +50,15 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 * From the 'My virtualized data' page, Click on two of the virtualized tables (`PATIENTS` and `MEDICATIONS`) and click the *`Join`* button.
 
-![Choose to join two tables](../.gitbook/assets/images/dv/dv-join-select-tables.png)
+![Choose to join two tables](../images/dv/dv-join-select-tables.png)
 
 * To join the tables we need to pick a key that is common to both data sets. Here we choose to map `ID` from the *PATIENTS* table to `PATIENT` on the *MEDICATIONS* table. Do this by clicking on one and dragging it to another. When the line is drawn click on the *Next* button.
 
-![Map the ID to PATIENT keys](../.gitbook/assets/images/dv/dv-join-select-columns.png)
+![Map the ID to PATIENT keys](../images/dv/dv-join-select-columns.png)
 
 * In the next panel we will accept the existing names for our columns. Click the *`Next`* button to continue.
 
-![Review joined column names](../.gitbook/assets/images/dv/dv-join-col-names-review.png)
+![Review joined column names](../images/dv/dv-join-col-names-review.png)
 
 * In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. Click the *`Create view`* button to add the virtualized aggregate view to your data.
 
