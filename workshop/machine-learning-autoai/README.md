@@ -149,7 +149,7 @@ We could use AutoAI to create further experiments, in the hopes of proving a val
 
 * Select the deployment space that was created as part of the pre-work as the `Target space`. Add an optional Description or Tags and click `Promote`.
 
-![Promoting the model](../.gitbook/assets/images/autoai/autoai-promote-tags-description.png)
+![Promoting the model](../images/autoai/autoai-promote-tags-description.png)
 
 > ***Note***: This is assuming you have already created a deployment space in the `pre-work` section of the workshop. 
 

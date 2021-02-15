@@ -50,15 +50,15 @@ Now we're going to **join** the tables we previously virtualized, so we have a f
 
 * From the 'My virtualized data' page, Click on two of the virtualized tables (`PATIENTS` and `MEDICATIONS`) and click the *`Join`* button.
 
-![Choose to join two tables](../images/dv/dv-join-select-tables.png)
+![Choose to join two tables](../.gitbook/assets/images/dv/dv-join-select-tables.png)
 
 * To join the tables we need to pick a key that is common to both data sets. Here we choose to map `ID` from the *PATIENTS* table to `PATIENT` on the *MEDICATIONS* table. Do this by clicking on one and dragging it to another. When the line is drawn click on the *Next* button.
 
-![Map the ID to PATIENT keys](../images/dv/dv-join-select-columns.png)
+![Map the ID to PATIENT keys](../.gitbook/assets/images/dv/dv-join-select-columns.png)
 
 * In the next panel we will accept the existing names for our columns. Click the *`Next`* button to continue.
 
-![Review joined column names](../images/dv/dv-join-col-names-review.png)
+![Review joined column names](../.gitbook/assets/images/dv/dv-join-col-names-review.png)
 
 * In the next panel we'll give our joined data view a unique name (to be consistent with SQL standards, pick an all uppercase name), choose something like: `XXXPATIENTMEDICATIONS` (where `XXX` is my *All Upper Case* user ID or intitials). Also select the `My virtualized data` radio button. Click the *`Create view`* button to add the virtualized aggregate view to your data.
 
