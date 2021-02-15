@@ -1,0 +1,15 @@
+@startuml DV 
+
+Title Data Virtualization 
+
+"Data Steward" -> "Cloud Pak for Data" : Virtualize data
+"Cloud Pak for Data" -> Database: Get metadata
+Database -> "Cloud Pak for Data": Return metadata
+"Cloud Pak for Data" -> "Data Steward": Data virtualized
+
+"Data Steward" -> "Cloud Pak for Data" : Join tables
+"Cloud Pak for Data" -> Database: Create view SQL statement
+Database -> "Cloud Pak for Data": Return results
+"Cloud Pak for Data" -> "Data Steward": Return results
+
+@enduml
