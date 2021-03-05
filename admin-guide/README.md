@@ -28,6 +28,6 @@ Run through the instructions in the [Database Connection Configuration Readme](.
 
 We setup the a sample model and content in Watson OpenScale. (_Note: You must complete the *Database Setup* section before this section._).
 
-* Run fastpath configuration.
+* Run auto setup configuration.
 
 Run through the instructions in the [OpenScale Configuration Readme](./wos-configuration.md)

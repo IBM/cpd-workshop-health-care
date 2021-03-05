@@ -35,8 +35,8 @@ The introductory page of the workshop is broken down into the following sections
 | 00:10 | Walkthrough - [Machine Learning with AutoAI](machine-learning-autoai/README.md) | Use AutoAi to quickly generate a Machine Learning pipeline and model |
 | 00:20 | Lab - [Machine Learning with AutoAI](machine-learning-autoai/README.md) | Use AutoAi to quickly generate a Machine Learning pipeline and model |
 | 00:15 | Lecture - Monitor Models with Watson OpenScale | Monitor for Bias, Fairness, Drift, and Quality |
-| 00:10 | Walkthrough - [Monitoring models with OpenScale GUI (Fastpath Monitoring)](openscale-fastpath/README.md) | Quickly deploy an OpenScale demo with FastPath |
-| 00:15 | Lab - [Monitoring models with OpenScale GUI (Fastpath Monitoring)](openscale-fastpath/README.md) | Quickly deploy an OpenScale demo with FastPath |
+| 00:10 | Walkthrough - [Monitoring models with OpenScale GUI (Auto setup Monitoring)](openscale-fastpath/README.md) | Quickly deploy an OpenScale demo with Auto setup|
+| 00:15 | Lab - [Monitoring models with OpenScale GUI (Auto setup Monitoring)](openscale-fastpath/README.md) | Quickly deploy an OpenScale demo with Auto setup|
 
 ## Compatability
 
