@@ -10,7 +10,7 @@
 * [Data Visualization with Data Refinery](data-visualization-and-refinery/README.md)
 * [Enterprise data governance for Admins using Watson Knowledge Catalog](watson-knowledge-catalog-admin/README.md)
 * [Machine Learning with AutoAI](machine-learning-autoai/README.md)
-* [Monitoring models with OpenScale GUI (Fastpath Monitoring)](openscale-fastpath/README.md)
+* [Monitoring models with OpenScale GUI (Auto setup Monitoring)](openscale-fastpath/README.md)
 
 ### Workshop Resources
 
